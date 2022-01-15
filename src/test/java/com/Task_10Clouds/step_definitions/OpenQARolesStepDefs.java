@@ -44,8 +44,16 @@ public class OpenQARolesStepDefs {
     @When("the user selects {string} from All departments dropdown")
     public void theUserSelectsFromAllDepartmentsDropdown(String title) {
 
-        Actions action = new Actions(Driver.get());
-        action.moveToElement(careersPage.allDepartmentsDropdownSelectTag).doubleClick().build().perform();
+        Driver.get().findElement(By.xpath("//button[@class='Buttons__StyledButton-ellota-0 gKrBxG button']")).click();git
+
+        careersPage.allDepDropDown.click();
+
+        for (WebElement allDepartment : careersPage.allDepartments) {
+
+            if (allDepartment.getText().equals(title)){
+                allDepartment.click();
+            }
+        }
 
 
 

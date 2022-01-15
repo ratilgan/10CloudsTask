@@ -16,6 +16,12 @@ public class CareersPage extends BasePage {
     @FindBy (xpath = "(//select[@class='select--mobile'])[1]")
     public WebElement allDepartmentsDropdownSelectTag;
 
+    @FindBy (css = "div[class^='Select__StyledSelect']")
+    public WebElement allDepDropDown;
+
+    @FindBy (xpath = "(//ul)[3]/li")
+    public List<WebElement> allDepartments;
+
 
 
 
