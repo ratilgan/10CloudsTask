@@ -10,17 +10,14 @@ public class CareersPage extends BasePage {
     @FindBy (xpath = "//h2[@class='job-offer__title']")
     public List<WebElement> openRoles;
 
-    @FindBy (css = "button.select--desktop")
-    public WebElement allDepartmentsDropdown;
-
-    @FindBy (xpath = "(//select[@class='select--mobile'])[1]")
-    public WebElement allDepartmentsDropdownSelectTag;
+    @FindBy(xpath = "//button[@class='Buttons__StyledButton-ellota-0 gKrBxG button']")
+    public WebElement cookiesAgreeButton;
 
     @FindBy (css = "div[class^='Select__StyledSelect']")
-    public WebElement allDepDropDown;
+    public WebElement allDepartmentsDropdown;
 
     @FindBy (xpath = "(//ul)[3]/li")
-    public List<WebElement> allDepartments;
+    public List<WebElement> allDepartmentsList;
 
 
 

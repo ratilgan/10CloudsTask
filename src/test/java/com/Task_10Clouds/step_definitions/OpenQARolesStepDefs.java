@@ -4,6 +4,7 @@ import com.Task_10Clouds.pages.CareersPage;
 import com.Task_10Clouds.utilities.BrowserUtils;
 import com.Task_10Clouds.utilities.ConfigurationReader;
 import com.Task_10Clouds.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -25,8 +26,8 @@ public class OpenQARolesStepDefs {
         Driver.get().get(url);
     }
 
-    @Given("clicks on {string} tab")
-    public void clicks_on_tab(String string) {
+    @Given("clicks on Careers tab")
+    public void clicksOnCareersTab() {
         careersPage.careersTab.click();
     }
 
@@ -43,28 +44,32 @@ public class OpenQARolesStepDefs {
 
     @When("the user selects {string} from All departments dropdown")
     public void theUserSelectsFromAllDepartmentsDropdown(String title) {
-
-        Driver.get().findElement(By.xpath("//button[@class='Buttons__StyledButton-ellota-0 gKrBxG button']")).click();git
-
-        careersPage.allDepDropDown.click();
-
-        for (WebElement allDepartment : careersPage.allDepartments) {
-
-            if (allDepartment.getText().equals(title)){
-                allDepartment.click();
+        careersPage.cookiesAgreeButton.click();
+        careersPage.allDepartmentsDropdown.click();
+        for (WebElement department : careersPage.allDepartmentsList) {
+            if (department.getText().equals(title)){
+                department.click();
             }
         }
-
-
-
-
     }
 
     @Then("validate that each result contains {string} or {string} in the title")
     public void validateThatEachResultContainsOrInTheTitle(String expectedJobTitle1, String expectedJobTitle2) {
         for (WebElement openRole : careersPage.openRoles) {
-            Assert.assertTrue(openRole.getText().contains(expectedJobTitle1) || openRole.getText().contains(expectedJobTitle2));
+            Assert.assertTrue("verify results titles", openRole.getText().contains(expectedJobTitle1) || openRole.getText().contains(expectedJobTitle2));
         }
     }
+
+    @Then("validate that there is NOT {int} {string} role open")
+    public void validateThatThereIsNOTRoleOpen(Integer unExpectedNumberOfRole, String expectedRoleName) {
+        Integer actualNumberOfRole = 0;
+        for (WebElement openRole : careersPage.openRoles) {
+            if (openRole.getText().contains(expectedRoleName)){
+                actualNumberOfRole ++;
+            }
+        }
+        Assert.assertNotEquals("verify number of open roles", unExpectedNumberOfRole, actualNumberOfRole);
+    }
+
 
 }
