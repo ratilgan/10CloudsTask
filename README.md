@@ -1,6 +1,6 @@
 # 10CloudsTask_JavaCucumber
 
-This test automation framework is created as an ALTERNATE solution for the technical task of 10Clouds. Test scenarios are written in Gherkin language according to the task to test the home page of 10Clouds: https://10clouds.com/. The codes are written in Java programming language with the implementations of object-oriented-programming (OOP) concepts. Page object model design pattern is also implemented in the framework.
+This test automation framework is created as an ALTERNATE solution for the technical task of 10Clouds. Test scenarios are written in Gherkin language according to the task to test the home page of 10Clouds: https://10clouds.com/. The codes are written in Java programming language with the implementations of object-oriented-programming (OOP) concepts. Page object model (POM) design pattern is also implemented in the framework.
 
 ## Reporting
 
